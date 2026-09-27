@@ -1,0 +1,6 @@
+let x = 7;
+import "mod/lib";
+
+fn main() {
+    print("x=", x, "LV=", LV, "LV2=", LV2);
+}

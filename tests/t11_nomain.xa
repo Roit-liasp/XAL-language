@@ -1,0 +1,2 @@
+let loaded = 1;
+print("lib loaded " + str(loaded));

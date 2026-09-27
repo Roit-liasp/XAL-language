@@ -1,0 +1,6 @@
+let tag = "child-image";
+
+fn main() {
+    print("child: tag=" + tag);
+    return 42;
+}

@@ -1,0 +1,14 @@
+# xalc -o main.xb main.xa
+# xvm main.xb
+
+import "calc";
+import "text";
+
+fn main() {
+    print("2 + 3 = " .. calc.add(2, 3));
+    print("4 * 5 = " .. calc.mul(4, 5));
+    print("fact(5) = " .. fact(5));
+    print("double(21) = " .. double(21));
+    print(text.wrap(text.shout("Hello in module")));
+    return 0;
+}

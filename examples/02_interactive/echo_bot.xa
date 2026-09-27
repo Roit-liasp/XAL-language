@@ -1,0 +1,27 @@
+# xalc -o echo_bot.xb echo_bot.xa
+# xvm echo_bot.xb
+
+fn main() {
+    print("Ctrl+D - Exit");
+
+    let n = 0;
+    while 1 {
+        puts("> ");
+        let line = input();
+        if eof() {
+            print("Godbye, line: " .. n);
+            return 0;
+        }
+        line = trim(line);
+        if line == "exit" {
+            print("Godbye, line: " .. n);
+            return 0;
+        }
+        if line == "" {
+            print("(Blank line)");
+            continue;
+        }
+        n += 1;
+        print(n .. ": " .. line);
+    }
+}

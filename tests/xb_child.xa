@@ -1,0 +1,14 @@
+fn show(i) {
+	print("child argv" + str(i) + "=" + argv(i));
+	return 0;
+}
+
+fn main() {
+	let i = 0;
+	while i < argc() {
+		show(i);
+		i = i + 1;
+	}
+	print("child done");
+	return 42;
+}

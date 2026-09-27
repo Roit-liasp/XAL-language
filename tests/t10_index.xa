@@ -1,0 +1,18 @@
+fn main() {
+	let a = [[1, 2], [3, 4]];
+	a[0][1] = 99;
+	print(a[0][1]);
+	a[1][0] += 10;
+	print(a[1][0]);
+	a[0][0] = a[1][1] + 1;
+	print(a[0][0]);
+	let m = [[["deep"]]];
+	m[0][0][0] = "ok";
+	print(m[0][0][0]);
+	let s = "hello";
+	print(s[1]);
+	let one = [0];
+	one[0] += 7;
+	print(one[0]);
+	return 0;
+}

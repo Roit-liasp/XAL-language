@@ -1,0 +1,8 @@
+let tag = "parent-live";
+let n = 12345;
+
+fn main() {
+    print("parent: tag=" + tag);
+    print("parent: n=" + str(n));
+    return 7;
+}

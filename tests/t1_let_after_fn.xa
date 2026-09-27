@@ -1,0 +1,9 @@
+let a = 1;
+
+fn foo() { return 42; }
+
+let b = 2;
+
+fn main() {
+    print("a=", a, "b=", b, "foo=", foo());
+}

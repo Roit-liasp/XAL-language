@@ -1,0 +1,36 @@
+fn check(name, cond) {
+	if cond {
+		print("ok " + name);
+	} else {
+		print("BAD " + name);
+	}
+	return 0;
+}
+
+fn main() {
+	check("getpid", getpid() > 0);
+
+	let pid = spawn(["/bin/sh", "-c", "exit 3"]);
+	check("spawn", pid > 0);
+	check("wait", wait(pid) == 3);
+
+	let slow = spawn(["/bin/sh", "-c", "sleep 5"]);
+	check("spawn slow", slow > 0);
+	check("waitpid nohang", waitpid(slow, 1) == -2);
+	check("kill", kill(slow, 15) == 0);
+	let rc = wait(slow);
+	check("killed", rc == 143 || rc == 15 || rc == -1);
+
+	let f = pipe();
+	check("pipe", len(f) == 2);
+	if len(f) == 2 {
+		check("dup2", dup2(f[1], 5) == 0);
+		close(f[0]);
+		close(f[1]);
+	}
+
+	check("has_cap proc", has_cap("proc") == 1);
+	check("has_cap nonsense", has_cap("unicorn") == 0);
+	check("caps list", len(caps()) > 3);
+	return 0;
+}

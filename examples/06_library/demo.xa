@@ -1,0 +1,20 @@
+# xal -o demo.xb demo.xa
+# xvm demo.xb
+
+import "strlib";
+use strlib.pad_left;
+
+fn main() {
+    let t = "  Hello, World  ";
+    print("Original: [" .. t .. "]");
+    print("slug: [" .. strlib.slug(t) .. "]");
+    print("pad: [" .. pad_left("42", 6) .. "]");
+    print("is_empty(''): " .. is_empty(""));
+
+    let verse = "one\ntwo\nthree";
+    print("Lines in verse: " .. count_lines(verse));
+    print("Lines separated by dash: " .. join(lines(verse), " | "));
+    print("List:");
+    puts(bullet_list(["apple", "pear", "plum"], "-"));
+    return 0;
+}

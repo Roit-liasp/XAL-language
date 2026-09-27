@@ -1,0 +1,5 @@
+let g = 1;
+fn main() {
+    let p1 = 10; let p2 = 20; let p3 = 30; let p4 = 40; let p5 = 50;
+    print(p1+p2+p3+p4+p5, g);
+}

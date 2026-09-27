@@ -1,0 +1,38 @@
+fn main() {
+	if "10" < "9" {
+		print("lt ok");
+	} else {
+		print("lt BAD");
+	}
+	if "apple" < "banana" {
+		print("alpha ok");
+	} else {
+		print("alpha BAD");
+	}
+	if "B" >= "0" {
+		print("digits ok");
+	} else {
+		print("digits BAD");
+	}
+	if "a" > "A" {
+		print("case ok");
+	} else {
+		print("case BAD");
+	}
+	if "abc" <= "abc" {
+		print("le ok");
+	} else {
+		print("le BAD");
+	}
+	if 10 > 9 {
+		print("num ok");
+	} else {
+		print("num BAD");
+	}
+	if "abc" != "abd" {
+		print("ne ok");
+	} else {
+		print("ne BAD");
+	}
+	return 0;
+}

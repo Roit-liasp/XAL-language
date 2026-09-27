@@ -1,0 +1,21 @@
+// Родитель: запускает другие .xb вложенно (run_xb) и проверяет,
+// что возможность, которой нет в системе, приводит к отказу.
+fn main() {
+	let child = argv(1);
+	let exiter = argv(2);
+	let piper = argv(3);
+	if child == "" {
+		print("usage: xvm xb_parent.xb child.xb exit.xb pipe.xb");
+		return 2;
+	}
+	let rc = run_xb(child, ["child-name", "one", "two"]);
+	print("run_xb rc=" + str(rc));
+	let again = run_xb(child, ["second"]);
+	print("second rc=" + str(again));
+	let erc = run_xb(exiter, ["exit-name"]);
+	print("exit rc=" + str(erc));
+	print("parent alive");
+	let prc = run_xb(piper, ["pipe-name"]);
+	print("pipe rc=" + str(prc));
+	return 0;
+}

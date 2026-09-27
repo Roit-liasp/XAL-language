@@ -1,0 +1,5 @@
+module(lib)
+
+pub let LV = 100;
+pub fn answer() { return 42; }
+pub let LV2 = 200;

@@ -1,0 +1,7 @@
+# xalc -o hello.xb hello.xa
+# xvm hello.xb
+
+fn main() {
+    print("Hello World");
+    return 0;
+}

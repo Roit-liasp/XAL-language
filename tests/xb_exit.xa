@@ -1,0 +1,6 @@
+fn main() {
+	print("child exiting");
+	exit(7);
+	print("never reached");
+	return 0;
+}

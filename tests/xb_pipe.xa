@@ -1,0 +1,9 @@
+fn main() {
+	let f = pipe();
+	if f == -1 {
+		print("pipe unavailable");
+	} else {
+		print("pipe ok");
+	}
+	return 0;
+}

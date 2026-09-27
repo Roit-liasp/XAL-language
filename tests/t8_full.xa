@@ -1,0 +1,29 @@
+import "mod/lib";
+use lib.answer;
+let total = 0;
+
+fn sq(x) { return x * x; }
+
+fn worker(a, b) { let s = 0; for i in [a, b] { s += i; } return s; }
+
+fn cls(v) {
+    case v { 1, 2 { return "small"; } 3 { return "three"; } default { return "big"; } }
+}
+
+let cnt = 3;
+fn main() {
+    print(parallel_map("sq", [1,2,3,4,5]));
+    let t = spawn_thread("worker", [10, 32]);
+    print("joined:", join_thread(t));
+    let ch = chan_new();
+    chan_send(ch, "msg"); chan_send(ch, 7);
+    print(chan_recv(ch), chan_recv(ch), chan_tryrecv(ch));
+    print(cls(1), cls(3), cls(9), cnt, answer());
+    let l = [3, 1, 2]; l = sort(l); insert(l, 0, 0); print(l, len(l), join(split("a,b,c", ","), "-"));
+    let s = "";
+    let i = 0;
+    while i < 20000 { s = substr("hello world", i % 5, 3); l[i % 3] = s; i += 1; }
+    print(gc_stat()[1] > 0, s, upper("ok"), replace("aXbX", "X", "-"), spawn_thread("nope", []));
+    if not exists("/nonexistent") and 1 { print("logic ok"); }
+    return 3;
+}

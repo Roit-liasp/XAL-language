@@ -1,0 +1,11 @@
+let greeting = "bare metal xvm";
+
+fn fib(n) { if n < 2 { return n; } return fib(n-1) + fib(n-2); }
+
+fn main() {
+    print(greeting, "fib(20)=", fib(20));
+    let t = spawn_thread("fib", [10]);
+    print("inline thread result:", join_thread(t), "cpus:", cpu_count());
+    print("readfile on no-fs:", len(readfile("/etc/passwd")), "exists:", exists("/"));
+    return 0;
+}

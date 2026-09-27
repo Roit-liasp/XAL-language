@@ -1,0 +1,20 @@
+module(strlib)
+
+pub fn is_empty(s) { return len(s) == 0; }
+pub fn slug(s) { return lower(trim(s)); }
+pub fn lines(s) { return split(s, "\n"); }
+pub fn count_lines(s) { return len(split(s, "\n")); }
+
+pub fn pad_left(s, w) {
+    let r = s;
+    while len(r) < w { r = " " .. r; }
+    return r;
+}
+
+pub fn bullet_list(items, mark) {
+    let out = "";
+    for it in items {
+        out = out .. mark .. " " .. it .. "\n";
+    }
+    return out;
+}

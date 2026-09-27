@@ -1,0 +1,30 @@
+# xalc -o files_demo.xb files_demo.xa
+# xvm files_demo.xb
+
+fn main() {
+    let dir = "/tmp/xal_files_demo";
+    mkdirp(dir);
+    print("Folder " .. dir .. " - is folder: " .. isdir(dir));
+
+    let a = dir .. "/a.txt";
+    let b = dir .. "/b.txt";
+    writefile(a, "line one\nline two\n");
+    writefile(b, "secret");
+    print("File a exists: " .. exists(a));
+    print("Contents of file a:");
+    print(readfile(a));
+
+    print("Folder contents:");
+    for name in readdir(dir) {
+        print("  - " .. name);
+    }
+
+    rename(b, dir .. "/c.txt");
+    print("Renamed b to c, c exists: " .. exists(dir .. "/c.txt"));
+    print("Folder modification time: " .. mtime(dir));
+
+    unlink(a);
+    unlink(dir .. "/c.txt");
+    print("Removed files, left in folder: " .. len(readdir(dir)));
+    return 0;
+}

@@ -1,0 +1,4 @@
+module(text)
+
+pub fn shout(s) { return upper(s) .. "!"; }
+pub fn wrap(s) { return "[ " .. s .. " ]"; }
